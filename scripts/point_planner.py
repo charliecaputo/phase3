@@ -102,16 +102,16 @@ if __name__ == '__main__':
                    
                     # Add the transformed ball position as point 4
                     plan_point4 = Twist()
-                    ##point_mode UInt8()
+                    point_mode UInt8()
                     plan_point4.linear.x = ball_x_base
                     plan_point4.linear.y = ball_y_base
                     plan_point4.linear.z = ball_z_base+0.01
                     plan_point4.angular.x = tool_twist.angular.x
                     plan_point4.angular.y = tool_twist.angular.y
                     plan_point4.angular.z = tool_twist.angular.z
-                    ##point_mode.data = mode
+                    point_mode.data = mode
                     plan.points.append(plan_point4)
-                    ##plan.modes.append(point_mode)
+                    plan.modes.append(point_mode)
                     
                     
                     # Point 5
