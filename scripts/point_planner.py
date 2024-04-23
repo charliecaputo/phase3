@@ -72,33 +72,42 @@ if __name__ == '__main__':
 
                     # Point 1
                     plan_point1 = Twist()
+		    point_mode UInt8()
                     plan_point1.linear.x = tool_twist.linear.x
                     plan_point1.linear.y = tool_twist.linear.y
                     plan_point1.linear.z = tool_twist.linear.z
                     plan_point1.angular.x = tool_twist.angular.x
                     plan_point1.angular.y = tool_twist.angular.y
                     plan_point1.angular.z = tool_twist.angular.z
+                    point_mode.data = 0
                     plan.points.append(plan_point1)
+		    plan.modes.append(point_mode)
 
                     # Add the transformed ball position as point 2
                     plan_point2 = Twist()
+		    point_mode UInt8()
                     plan_point2.linear.x = ball_x_base
                     plan_point2.linear.y = ball_y_base
                     plan_point2.linear.z = 0.43
                     plan_point2.angular.x = tool_twist.angular.x
                     plan_point2.angular.y = tool_twist.angular.y
                     plan_point2.angular.z = tool_twist.angular.z
+                    point_mode.data = 0
                     plan.points.append(plan_point2)
+		    plan.modes.append(point_mode)
                     
                     # Add the transformed ball position as point 3
                     plan_point3 = Twist()
+		    point_mode UInt8()
                     plan_point3.linear.x = ball_x_base
                     plan_point3.linear.y = ball_y_base
-                    plan_point3.linear.z = ball_z_base+0.05
+                    plan_point3.linear.z = ball_z_base+0.01
                     plan_point3.angular.x = tool_twist.angular.x
                     plan_point3.angular.y = tool_twist.angular.y
                     plan_point3.angular.z = tool_twist.angular.z
+		    point_mode.data = 0
                     plan.points.append(plan_point3)
+		    plan.modes.append(point_mode)
                    
                     # Add the transformed ball position as point 4
                     plan_point4 = Twist()
@@ -109,30 +118,49 @@ if __name__ == '__main__':
                     plan_point4.angular.x = tool_twist.angular.x
                     plan_point4.angular.y = tool_twist.angular.y
                     plan_point4.angular.z = tool_twist.angular.z
-                    point_mode.data = mode
+                    point_mode.data = 2
                     plan.points.append(plan_point4)
                     plan.modes.append(point_mode)
                     
                     
                     # Point 5
                     plan_point5 = Twist()
+		    point_mode UInt8()
                     plan_point5.linear.x = ball_x_base
                     plan_point5.linear.y = -0.6
                     plan_point5.linear.z = 0.43
                     plan_point5.angular.x = tool_twist.angular.x
                     plan_point5.angular.y = tool_twist.angular.y
                     plan_point5.angular.z = tool_twist.angular.z
+                    point_mode.data = 0
                     plan.points.append(plan_point5)
+                    plan.modes.append(point_mode)
 
                     # Point 6
                     plan_point6 = Twist()
+		    point_mode UInt8()
                     plan_point6.linear.x = ball_x_base
                     plan_point6.linear.y = -0.6
                     plan_point6.linear.z = ball_z_base+0.01
                     plan_point6.angular.x = tool_twist.angular.x
                     plan_point6.angular.y = tool_twist.angular.y
                     plan_point6.angular.z = tool_twist.angular.z
+                    point_mode.data = 0
                     plan.points.append(plan_point6)
+                    plan.modes.append(point_mode)
+
+		    #Point 7
+	            plan_point7 = Twist()
+		    point_mode UInt8()
+                    plan_point7.linear.x = ball_x_base
+                    plan_point7.linear.y = -0.6
+                    plan_point7.linear.z = ball_z_base+0.01
+                    plan_point7.angular.x = tool_twist.angular.x
+                    plan_point7.angular.y = tool_twist.angular.y
+                    plan_point7.angular.z = tool_twist.angular.z
+                    point_mode.data = 1
+                    plan.points.append(plan_point7)
+                    plan.modes.append(point_mode)
 
                     # Publish the plan
                     plan_pub.publish(plan)
