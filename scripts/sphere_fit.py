@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import rospy
 import numpy as np
 from robot_vision_lectures.msg import XYZarray, SphereParams
